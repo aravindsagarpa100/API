@@ -7,6 +7,10 @@ app=Flask(__name__)
 
 res={}
 
+@app.route("/")
+def index():
+    res['ServerStatus']=True
+    return jsonify(res)
 
 @app.route("/<string:str>")
 def certutil(str):
@@ -22,4 +26,3 @@ def certutil(str):
     
 if __name__ == "__main__":
     app.run(debug=True,port=80)
-    os.system("py D:\\RTA\\pagekite.py")
