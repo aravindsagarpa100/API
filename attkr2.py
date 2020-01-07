@@ -1,16 +1,23 @@
 import os
 from flask import Flask
+from flask import jsonify
 
 
 app=Flask(__name__)
+
+res={}
 
 @app.route("/<string:str>")
 def certutil(str):
     x=os.system("py D:\\RTA\\red_ttp\\"+str+".py")
     if x==0:
-        return "{status: successful,name: "+str+"}"
+        res['status']=True
+        res['name']=str
+        return jsonify(res)
     else:
-        return "{status: failed,name: "+str+"}"
+        res['status']=False
+        res['name']=str
+        return jsonify(res)
     
 if __name__ == "__main__":
     app.run(debug=True,port=80)
