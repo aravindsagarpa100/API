@@ -7,9 +7,10 @@ app=Flask(__name__)
 
 res={}
 
+
 @app.route("/<string:str>")
 def certutil(str):
-    x=os.system("py D:\\RTA\\red_ttp\\"+str+".py")
+    x=os.system("py .\\red_ttp\\"+str+".py")
     if x==0:
         res['status']=True
         res['name']=str
