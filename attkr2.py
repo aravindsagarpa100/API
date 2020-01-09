@@ -9,6 +9,13 @@ res={ # response json object
     'ServerStatus' : True
 }
 
+def line(str):
+    reportFile=open("report.txt","a")
+    reportFile.write("\nProgramName: "+str)
+    reportFile.write("\n-----------------------------------------------------------------------------------------------------------------\n")
+    reportFile.close()
+    return
+
 @app.route("/")
 def index():
     res['name']=None
@@ -19,6 +26,7 @@ def index():
 def certutil(str):
     if str!="favicon.ico":
         x=os.system("py .\\red_ttp\\"+str+".py >> report.txt")
+        line(str)
         res['name']=str
         if x==0:
             res['execstatus']=True
