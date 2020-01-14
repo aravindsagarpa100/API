@@ -25,7 +25,7 @@ def index():
 @app.route("/<string:str>")
 def certutil(str):
     if str!="favicon.ico":
-        x=os.system("py .\\red_ttp\\"+str+".py >> report.txt")
+        x=os.system("py -2 .\\red_ttp\\"+str+".py >> report.txt")
         line(str)
         res['name']=str
         if x==0:
