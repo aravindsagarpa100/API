@@ -36,4 +36,5 @@ def certutil(str):
             return jsonify(res)
     
 if __name__ == "__main__":
-    app.run(debug=True,port=80)
+    os.system("for /f \"tokens=2 delims=[]\" %a in ('ping -n 1 -4 \"%computername%\"') do @echo %a > ipaddr.txt")
+    app.run(debug=True,port=80,host='0.0.0.0')
