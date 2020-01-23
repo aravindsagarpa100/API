@@ -9,6 +9,8 @@ res={ # response json object
     'ServerStatus' : True
 }
 
+wd=os.getcwd()
+
 def line(str):
     reportFile=open("report.txt","a")
     reportFile.write("\nProgramName: "+str)
@@ -25,7 +27,7 @@ def index():
 @app.route("/<string:str>")
 def certutil(str):
     if str!="favicon.ico":
-        x=os.system("python .\\red_ttp\\"+str+".py >> report.txt")
+        x=os.system("python "+wd+"\\red_ttp\\"+str+".py >> report.txt")
         line(str)
         res['name']=str
         if x==0:
