@@ -27,7 +27,7 @@ def index():
 @app.route("/<string:str>")
 def certutil(str):
     if str!="favicon.ico":
-        x=os.system("python "+wd+"\\red_ttp\\"+str+".py >> report.txt")
+        x=os.system("py "+wd+"\\red_ttp\\"+str+".py >> report.txt")
         line(str)
         res['name']=str
         if x==0:
@@ -43,5 +43,4 @@ if __name__ == "__main__":
     y=os.system("set PYTHONPATH=%PYTHONPATH%;C:\Python27")
     if y==0:
         print("environment varibles: set")
-
     app.run(debug=True,port=5859,host='0.0.0.0')
